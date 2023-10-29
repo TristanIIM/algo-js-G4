@@ -23,8 +23,8 @@ const characteristics = {
     nerd: [0.3, 0.5, 0.2],
     sportif: [0.1, 0.8, 0.1],
     solitaire: [0.6, 0.2, 0.2],
-    fêtard: [0.7, 0.2, 0.6],
-    intelligent: [0.3, 0.4, 0.4],
+    fêtard: [0.7, 0.2, 0.1],
+    intelligent: [0.2, 0.4, 0.4],
 }
 
 const survivants = []
@@ -35,6 +35,7 @@ function genererSurvivant() {
     const nom = Names.splice(nomIndex, 1)[0]
     const caracteristiqueAleatoire = Object.keys(characteristics)[Math.floor(Math.random() * Object.keys(characteristics).length)]
     const [death, esquive, attack] = characteristics[caracteristiqueAleatoire]
+    delete characteristics.caracteristiqueAleatoire
     return new Survivant(nom, caracteristiqueAleatoire, death, esquive, attack)
 }
 
